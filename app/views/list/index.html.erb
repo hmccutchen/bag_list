@@ -1,0 +1,35 @@
+<h1>Index </h1>
+
+
+<% @lists.each do |list| %>
+  <div class="row justify-content-center my-3">
+    <div class="col-10 col-lg-6">
+      <div class="card">
+        <div class="card-header"><%= list.name %></div>
+        <div class="card-body p-0">
+          <div class="list-group list-group-flush">
+            <% list.list_items.each do |list_item| %>
+            
+                <div class="list-group-item">
+                  <del>
+                    <%= list_item.name %>
+                  </del>
+                </div>
+                <div class="list-group-item" data-controller="list">
+                  <div class="custom-control custom-checkbox">
+                    <label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
+                  </div>
+                </div>
+            
+            <% end %>
+          </div>
+        </div>
+        <div class="card-footer">
+        	<%= form_with model: List.new, url: "" do |form| %>
+        	<%= form.text_field :name %>
+        	<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
