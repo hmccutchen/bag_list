@@ -8,5 +8,10 @@ connect(){
 	StimulusReflex.register(this)
  }
 
- 
+ destroy(){
+ 	const confirmation = confirm("Are you sure?")
+ 	if(confirmation){
+ 	this.stimulate("ListItem#destroy", event.currentTarget)
+  }
+ }
 }
