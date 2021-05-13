@@ -2,14 +2,14 @@
 
 
 <% @lists.each do |list| %>
-  <div class="row justify-content-center my-3">
+  <div class="row justify-content-center my-3" data-controller="list-item">
     <div class="col-10 col-lg-6">
       <div class="card">
         <div class="card-header"><%= list.name %></div>
         <div class="card-body p-0">
           <div class="list-group list-group-flush">
             <% list.list_items.each do |list_item| %>
-                <div class="list-group-item d-flex justify-content-between" data-controller="list-item">
+                <div class="list-group-item d-flex justify-content-between">
                   
                     <label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
                  
@@ -26,10 +26,10 @@
         </div>
              
 
-        <div class="card-footer">
-        	<%= bootstrap_form_with model: ListItem.new, url: "", layout: :inline, data: { reflex: "submit->ListItem#create", list_id: list.id } do |form| %>
+        <div class="card-footer form-group">
+        	<%= bootstrap_form_with model: ListItem.new, url: "", class: "form-inline", data: { reflex: "submit->ListItem#create", list_id: list.id, list_item_target: "form" } do |form| %>
         	<%= form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "w-100", placeholder: "Add a new list item" %>
-        	 <%= form.submit "Add Item" %>
+        	 <%= form.submit "Add Item"%>
         	<% end %>
         </div>
 
