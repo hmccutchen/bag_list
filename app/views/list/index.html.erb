@@ -1,5 +1,30 @@
-<h1>Index </h1>
+<h1>Create a list</h1>
 
+
+<div data-controller="list">
+  
+ <button style="color: green;"  class="fas fa-plus-circle fa-2x"  data-action="click->list#addList">
+   
+ 
+ </button>
+
+
+    <div class="modal" data-controller="modal" data-list-target="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                 <%= bootstrap_form_with model: List.new, url: "", layout: :inline do |form| %>
+                 <%=form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "w-100", placeholder: "Add list name" %>
+        	       <%= form.submit "Submit" %>
+        	       <% end %>
+                 
+                 <button data-action="click->modal#close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  
 
 <% @lists.each do |list| %>
   <div class="row justify-content-center my-3">
@@ -37,3 +62,4 @@
     </div>
   </div>
 <% end %>
+</div>
