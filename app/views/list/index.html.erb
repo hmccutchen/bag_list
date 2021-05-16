@@ -56,8 +56,8 @@
         </div>
              
 
-        <div class="card-footer">
-        	<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id } do |form| %>
+        <div class="card-footer"  data-controller="list-item">
+        	<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_target: "form" } do |form| %>
         	<%= form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "w-100", placeholder: "Add a new list item" %>
         	 <%= form.submit "Add Item" %>
         	<% end %>
