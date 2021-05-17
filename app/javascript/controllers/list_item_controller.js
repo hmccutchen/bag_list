@@ -9,9 +9,11 @@ connect(){
 	StimulusReflex.register(this)
  }
 
- destroy(){
+ destroy(event){
  	const confirmation = confirm("Are you sure?")
  	if(confirmation){
+    event.preventDefault()
+   
  	this.stimulate("ListItem#destroy", event.currentTarget)
   }
  }

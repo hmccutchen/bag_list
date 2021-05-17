@@ -3,70 +3,84 @@
 
 <div data-controller="list">
   
- <button style="color: green;"  class="fas fa-plus-circle fa-2x"  data-action="click->list#addList">
+ <button type="button" style="color: green;"  class="fas fa-plus-circle fa-2x"  data-action="click->list#addList">
    
  
  </button>
 
 
-    <div class="modal" data-controller="modal" data-list-target="modal">
+    <div class="modal fade" data-controller="modal" data-list-target="modal">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div>
-                <h2 class="d-flex justify-content-center mb-3">Create a new list</h2>
+              <div class="modal-header">
+                <h2 class="d-flex justify-content-center mb-3 modal-title">Create a new list</h2>
               </div>
-                 <div class="form-group">
-                 <%= bootstrap_form_with model: List.new, url: "", data: { reflex: "submit->List#create"} do |form| %>
-                 <%=form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "mb-5 w-100", placeholder: "Add list name" %>
-        	       <%= form.submit "Submit", class: "form-control btn btn-success" %>
-        	       <% end %>
-                 </div>
-                 <button class="btn btn-danger" data-action="click->modal#close">Close</button>
+
+                  <div class="modal-body">
+                   
+                 	<%= bootstrap_form_with model: List.new, url: "", data: { reflex: "submit->List#create"} do |form| %>
+                 	<%=form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "mb-2 w-100", placeholder: "Add list name" %>
+                 	<%= form.date_field :date, wrapper_class: "flex-fill mr-2", class: "w-100 mb-4" %>
+        	        <%= form.submit "Submit", class: "btn btn-success" %>
+                    <button class="btn btn-danger" data-action="click->modal#close">Close</button>
+                   </div>
+               
+        	        <% end %>
+             
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-  <div class="row">
-   
-<% @lists.each do |list| %>
- <div class="col-lg-6 col-md-6 col sm-12">
-  <div class="row justify-content-center my-3">
-    <div class="col-10 col-lg-6">
-      <div class="card">
-        <div class="card-header"><%= list.name %></div>
-        <div class="card-body p-0">
-          <div class="list-group list-group-flush">
-            <% list.list_items.each do |list_item| %>
-                <div class="list-group-item d-flex justify-content-between">
-                  
-                    <label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
-                 
-                <div>
-                	<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
-                		
-                	<i class="fa fa-times text-danger"></i>
-                	</a>
-                </div>
-                </div>
+<div class="container" data-controller="list">
+	<div class="row">
 
-            <% end %>
-          </div>
-        </div>
-             
+		<% @lists.each do |list| %>
+		<div class="col-lg-4 col-md-6 col sm-12">
+				
+					<div class="card">
+						<div class="card-header ">
 
-        <div class="card-footer"  data-controller="list-item">
-        	<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
-        	<%= form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "w-100", placeholder: "Add a new list item" %>
-        	 <%= form.submit "Add Item"%>
-        	<% end %>
-        </div>
+										<a style="font-size: 13px;" class="d-flex justify-content-end" href="#" data-action="click->list#destroy" data-id="<%= list.id %>">
 
-      </div>
-    </div>
-  </div>
-  </div>
-<% end %>
+											<i class="fa fa-times text-danger"></i>
+										</a>
+                                          
+							<%= list.name %> <span class=""style="font-size: 12px;"><%= list.date.strftime("%m/%d/%Y") %></span>
+
+									
+						</div>
+						<div class="card-body p-0" data-controller="list-item">
+							<div class="list-group list-group-flush">
+								<% list.list_items.each do |list_item| %>
+								<div class="list-group-item d-flex justify-content-between">
+
+									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
+
+									<div>
+										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
+
+											<i class="fa fa-times text-danger"></i>
+										</a>
+									</div>
+								</div>
+
+								<% end %>
+							</div>
+						</div>
+
+
+						<div class="card-footer"  data-controller="list-item">
+							<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
+							<%= form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "mb-3 w-100", placeholder: "Add a new list item" %>
+							<%= form.submit "Add Item"%>
+							<% end %>
+						</div>
+
+					</div>
+							
+		</div>
+		<% end %>
+	</div>
 </div>
 </div>
