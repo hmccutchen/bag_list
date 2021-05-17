@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import StimulusReflex from "stimulus_reflex"
 
 export default class extends Controller {
-
+static targets = ["form"]
 
 connect(){
 	StimulusReflex.register(this)
@@ -13,5 +13,10 @@ connect(){
  	if(confirmation){
  	this.stimulate("ListItem#destroy", event.currentTarget)
   }
+ }
+ 
+ createSuccess(){
+  console.log(this.formTarget)
+  // this.formTarget.reset();
  }
 }
