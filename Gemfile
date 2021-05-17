@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem "stimulus_reflex", "~> 3.4"
 gem 'bootstrap_form'
+gem "bootstrap"
+gem 'popper_js', '~> 1.9', '>= 1.9.9'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -56,4 +58,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "stimulus_reflex", "~> 3.4"
