@@ -16,7 +16,7 @@ connect(){
  }
  
  createSuccess(){
-  console.log("I cleared the form")
-  this.formTarget.reset();
+  console.log(this.formTarget)
+  // this.formTarget.reset();
  }
 }
