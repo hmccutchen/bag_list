@@ -16,10 +16,11 @@ connect(){
      );
      modalController.open();
  }
- 
- createSuccess(){
-  console.log(this.formTarget)
-  // this.formTarget.reset();
+ destroy(event){
+ 	const confirmation = confirm("Delete this list?")
+ 	if(confirmation){
+    event.preventDefault()
+ 	this.stimulate("List#destroy", event.currentTarget)
+  }
  }
-}
 }
