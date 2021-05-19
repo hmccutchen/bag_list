@@ -74,7 +74,7 @@
 							<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
 				
 							<div class="container">
-							<%= form.rich_text_area :content, skip_label: true, class: "mb-3 w-100 form-control" %>
+							<%= form.rich_text_area :content, skip_label: true, id: form.object.object_id, class: "mb-3 w-100 form-control" %>
 								
 							</div>
 							<%= form.submit "Add Item"%>
