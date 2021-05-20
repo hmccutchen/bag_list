@@ -3,7 +3,7 @@ import StimulusReflex from "stimulus_reflex"
 
 export default class extends Controller {
 
-static targets = ["form"]
+static targets = ["form", "modal"]
 
 connect(){
 	StimulusReflex.register(this)
@@ -17,7 +17,14 @@ connect(){
  	this.stimulate("ListItem#destroy", event.currentTarget)
   }
  }
-
+addItem(e){
+   let modalController = this.application.getControllerForElementAndIdentifier(
+      this.modalTarget,
+      "modal"
+     );
+     modalController.open();
+ }
+ 
  
  createSuccess(){
   

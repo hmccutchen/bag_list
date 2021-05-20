@@ -70,17 +70,36 @@
 						</div>
 
 
-						<div class="card-footer"  data-controller="list-item">
-							<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
+				<div class="card-footer"   data-controller="list-item">
+						             
+			
+					<div class= "modal fade"data-list-item-target="modal" data-controller="modal">
+					  <div class="modal-dialog">
+			            <div class="modal-content">
+			              <div class="modal-header">
+			                <h2 class="d-flex justify-content-center mb-3 modal-title">Create a new list item</h2>
+			              </div>
+			
+			                  <div class="modal-body">
+										<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
 				
-							<div class="container">
 							<%= form.rich_text_area :content, skip_label: true, id: form.object.object_id, class: "mb-3 w-100 form-control" %>
 								
-							</div>
+							
 							<%= form.submit "Add Item"%>
+							 
 							<% end %>
+							<button class="btn btn-danger" data-action="click->modal#close">Close</button>
 						</div>
-
+						</div>
+					</div>
+						</div>
+					
+				       <button type="button" method="get" class="btn btn-primary"  data-action="click->list-item#addItem">
+                                Add item
+ 
+                                 </button>
+						</div>
 					</div>
 							
 		</div>
