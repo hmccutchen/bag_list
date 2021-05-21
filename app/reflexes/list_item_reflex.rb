@@ -1,5 +1,6 @@
 class ListItemReflex < ApplicationReflex
-
+    
+    	before_reflex :set_list_item, only: [:edit, :destroy, :update]
 
 	def create
   	list = List.find(element.dataset.list_id)
@@ -8,7 +9,7 @@ class ListItemReflex < ApplicationReflex
 	end
 
 	def destroy
-		ListItem.find(element.dataset.id).destroy
+		@list_item.destroy
 	end
 
    private
@@ -16,7 +17,10 @@ class ListItemReflex < ApplicationReflex
    def list_item_params
    	params.require(:list_item).permit(:content)
    end
-
+   
+   def set_list_item
+   	 @list_item = ListItem.find(element.dataset.id)
+   end
    
    
 end

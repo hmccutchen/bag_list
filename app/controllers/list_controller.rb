@@ -2,7 +2,7 @@ class ListController < ApplicationController
 
 	def index
 		@lists = List.all
-		# @list = List.find(params[:id])
+		@list ||= List.new
 	end
  
  def new
