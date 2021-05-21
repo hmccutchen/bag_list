@@ -20,6 +20,3 @@ import "controllers"
 import "@fortawesome/fontawesome-free/js/all.js"
 
 
-
-require("trix")
-require("@rails/actiontext")

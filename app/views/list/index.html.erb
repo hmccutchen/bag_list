@@ -34,7 +34,7 @@
 
 <div class="container" data-controller="list">
 	<div class="row">
-        
+
 		<% @lists.each do |list| %>
 		<div class="col-lg-4 col-md-6 col sm-12">
 				
@@ -55,7 +55,7 @@
 								<% list.list_items.each do |list_item| %>
 								<div class="list-group-item d-flex justify-content-between">
 
-									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
+									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
 
 									<div>
 										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
@@ -68,6 +68,7 @@
 								<% end %>
 							</div>
 						</div>
+
 
 
 				<div class="card-footer"   data-controller="list-item">
