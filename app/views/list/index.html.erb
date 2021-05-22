@@ -34,7 +34,7 @@
 
 <div class="container" data-controller="list">
 	<div class="row">
-        
+
 		<% @lists.each do |list| %>
 		<div class="col-lg-4 col-md-6 col sm-12">
 				
@@ -55,7 +55,7 @@
 								<% list.list_items.each do |list_item| %>
 								<div class="list-group-item d-flex justify-content-between">
 
-									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
+									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
 
 									<div>
 										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
@@ -70,6 +70,7 @@
 						</div>
 
 
+<<<<<<< HEAD
 				<div class="card-footer"   data-controller="list-item">
 						             
 			
@@ -87,6 +88,12 @@
 							<%= form.submit "Add Item", class: " btn btn-success form-control "%>
 						</div>
 							<button type="button" class="btn btn-danger"  data-action="click->modal#close">Close</button>
+=======
+						<div class="card-footer"  data-controller="list-item">
+							<%= bootstrap_form_with model: ListItem.new, url: "", data: { reflex: "submit->ListItem#create", list_id: list.id, list_Item_target: "form" } do |form| %>
+							<%= form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "mb-3 w-100", placeholder: "Add a new list item" %>
+							<%= form.submit "Add Item"%>
+>>>>>>> Revert "Use action text"
 							<% end %>
 						</div>
 					</div>
