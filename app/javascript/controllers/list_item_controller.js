@@ -1,12 +1,23 @@
 import { Controller } from "stimulus"
 import StimulusReflex from "stimulus_reflex"
+import Sortable from "sortablejs"
 
 export default class extends Controller {
 
-    static targets = ["form", "modal"]
+    static targets = ["form", "modal", "item"]
 
     connect() {
         StimulusReflex.register(this)
+
+        Sortable.create(this.itemTarget, {
+            onEnd: (e) => this.reorder(e),
+        })
+
+
+    }
+
+    reorder(e) {
+        this.stimulate("ListItem#reorder", e.item, e.newIndex)
     }
 
     destroy(event) {
@@ -30,4 +41,7 @@ export default class extends Controller {
 
         this.formTarget.reset();
     }
+
+
+
 }
