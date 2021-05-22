@@ -14,3 +14,8 @@
 // *= require_tree .
 // *= require_self
 // */
+
+.mr {
+  margin-right: 5px;
+
+}

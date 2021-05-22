@@ -56,13 +56,19 @@
 								<div class="list-group-item d-flex justify-content-between" data-id= "<%= list_item.id %>">
 
 									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
+									
+					
 
-									<div>
+									<div class="">
+											<a href="#">
+											<i class="fas fa-edit mr"></i>
+										</a>
 										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
 
 											<i class="fa fa-times text-danger"></i>
 										</a>
 									</div>
+									
 								</div>
 
 								<% end %>
