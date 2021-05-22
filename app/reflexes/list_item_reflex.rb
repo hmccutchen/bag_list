@@ -15,7 +15,7 @@ class ListItemReflex < ApplicationReflex
    private
 
    def list_item_params
-   	params.require(:list_item).permit(:name)
+   	params.require(:list_item).permit(:content)
    end
    
    def set_list_item

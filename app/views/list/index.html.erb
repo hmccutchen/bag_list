@@ -55,7 +55,7 @@
 								<% list.list_items.each do |list_item| %>
 								<div class="list-group-item d-flex justify-content-between">
 
-									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.name %></label>
+									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
 
 									<div>
 										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
