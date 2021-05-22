@@ -1,4 +1,7 @@
 class List < ApplicationRecord
-	has_many :list_items, dependent: :destroy
+	has_many :list_items, -> { order(position: :asc)}, dependent: :destroy
+	
+	acts_as_list  top_of_list: 0 
+	default_scope -> { order(position: :asc) }
 	validates :name, presence: true
 end

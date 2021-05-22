@@ -1,13 +1,20 @@
 import { Controller } from "stimulus"
 import StimulusReflex from "stimulus_reflex"
+import Sortable from "sortablejs"
 
 export default class extends Controller {
-  static targets = ["modal"]
+  static targets = ["modal", "lists"]
 
   connect() {
     StimulusReflex.register(this)
+    Sortable.create(this.listsTarget, {
+      onEnd: (e) => this.reorder(e),
+    })
   }
 
+  reorder(e) {
+    this.stimulate("List#reorder", e.item, e.newIndex)
+  }
 
   addList(e) {
     let modalController = this.application.getControllerForElementAndIdentifier(
