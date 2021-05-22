@@ -4,4 +4,5 @@ class ListItem < ApplicationRecord
   
   validates :content, presence: true
 
+
 end
