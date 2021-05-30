@@ -18,9 +18,8 @@ class ListItemReflex < ApplicationReflex
 	
 	 def edit 
       
-     
-	  @list_item =  ListItem.find(element.dataset.listItemId).to_i
-	  puts "kdsljf;skdjf;laksdjf;lakdsfj;lakdsjfl;ajkd"
+	  #@list_item =  ListItem.find(element.dataset.listItemId).to_i
+	
 	 end 
 	 
 	 

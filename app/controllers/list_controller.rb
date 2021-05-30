@@ -1,7 +1,7 @@
 class ListController < ApplicationController
 
 	def index
-	 #set_list_item
+
 		@lists = List.all
 		@list ||= List.new
 	

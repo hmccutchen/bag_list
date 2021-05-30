@@ -25,8 +25,10 @@ gem 'jbuilder', '~> 2.7'
 gem "stimulus_reflex", "~> 3.4"
 gem 'bootstrap_form'
 gem "bootstrap"
+gem "bootstrap-sass"
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'acts_as_list'
+gem 'jquery-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
