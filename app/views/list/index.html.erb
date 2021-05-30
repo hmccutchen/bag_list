@@ -47,9 +47,8 @@
 										</a>
                                           
 							<%= list.name %> <span class=""style="font-size: 12px;"><%= list.date.strftime("%m/%d/%Y") %></span>
-
-									
 						</div>
+						
 						<div class="card-body p-0" data-controller="list-item">
 							<div class="list-group list-group-flush" data-list-item-target="item">
 								<% list.list_items.each do |list_item| %>
@@ -57,11 +56,30 @@
 
 									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
 									
+					    <div class= "modal fade" data-list-item-target="modal" data-controller="modal">
+					       <div class="modal-dialog">
+			             <div class="modal-content">
+			              <div class="modal-header">
+			                <h2 class="d-flex justify-content-end modal-title">Update list item</h2>
+			              </div>
+			
+				            <div class="modal-body">
+				            
+											<%= bootstrap_form_with model: list_item, url: "", data: { reflex: "submit->ListItem#update",  id: list_item.id, list_Item_target: "form" } do |form| %>
 					
+											<%= form.rich_text_area :content,  wrapper_class: "flex-fill mr-2", skip_label: true, id: form.object.object_id, class: "mb-3 w-100 form-control" %>
+											<%= form.primary "Edit Item", class: " btn btn-success form-control "%>
+										</div>
+										<button type="button" class="btn btn-danger"  data-action="click->modal#close">Close</button>
+										<% end %>
+										</div>
+											</div>
+												</div>
 
-									<div class="">
-											<a href="#">
-											<i class="fas fa-edit mr"></i>
+									<div>
+											<a href="#" data-list-item-id="<%= list_item.id %>" data-action="click->list-item#editItem">
+				                <%= list_item.id.inspect%>
+											<i class="fas fa-edit text-primary mr"></i>
 										</a>
 										<a href="#" data-action="click->list-item#destroy" data-id="<%= list_item.id %>">
 
@@ -72,6 +90,7 @@
 								</div>
 
 								<% end %>
+							
 							</div>
 						</div>
 
