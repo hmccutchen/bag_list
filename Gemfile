@@ -29,6 +29,7 @@ gem "bootstrap-sass"
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'acts_as_list'
 gem 'jquery-rails'
+gem 'bootstrap-modal-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

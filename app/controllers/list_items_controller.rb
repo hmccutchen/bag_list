@@ -11,9 +11,10 @@ class ListItemsController < ApplicationController
  
  def edit
  	set_list_item
+ 	
  	 respond_to do |format|
-    format.html
-    format.js { render "list_items/edit"}
+    format.html {}
+    format.js { render :layout => false}
   end
  end
  

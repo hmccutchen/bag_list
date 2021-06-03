@@ -73,6 +73,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-modal-rails (2.2.5)
+      railties (>= 3.1)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   acts_as_list
   bootsnap (>= 1.4.4)
   bootstrap
+  bootstrap-modal-rails
   bootstrap-sass
   bootstrap_form
   byebug

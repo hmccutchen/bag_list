@@ -43,8 +43,7 @@ export default class extends Controller {
     }
 
     editItem(e) {
-        console.log("dfkj;sdklfj;lkasdjf;lasjdf;lajsdflahdsgiarehfjskldjf;lasjd")
-        console.log(e.currentTarget.dataset.listItemId)
+
         this.stimulate("ListItem#edit", e.currentTarget.dataset.listItemId)
         e.preventDefault();
 

@@ -56,21 +56,9 @@
 
 									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
 									
-					    <div id="modal-window" class= "modal show fade">
-					       <div class="modal-dialog">
-			             <div class="modal-content">
-			              <div class="modal-header">
-			                <h2 class="d-flex justify-content-end modal-title">Update list item</h2>
-			              </div>
-			
-				            <div class="modal-body" id="list-item-modal">
-				              <%= render "list_items/form", list_item: list_item  if list_item.present?%> 
-										</div>
-										<button type="button" class="btn btn-danger"  data-action="click->modal#close">Close</button>
-									
-										</div>
-											</div>
-												</div>
+					    <div style="z-index: 4; position: absolute;" data-list-item-target="modal" data-controller="modal" id="modal-window" tabindex="-1"    role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+					        
+							</div>
 
 									<div class="d-flex">
 											<%=link_to  edit_list_list_item_path(list, list_item), {:remote => true, 'data-target' => '#modal-window'} do %> 
@@ -94,7 +82,7 @@
 
 				<div class="card-footer"   data-controller="list-item">
 						             
-					<div class= "modal fade"data-list-item-target="modal" data-controller="modal">
+					<div class= "modal fade" data-list-item-target="modal" data-controller="modal">
 					  <div class="modal-dialog">
 			            <div class="modal-content">
 			              <div class="modal-header">
