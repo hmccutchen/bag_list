@@ -56,9 +56,11 @@
 
 									<label for="<%= dom_id(list_item) %>" class="custom-control-label"><%= list_item.content %></label>
 									
-					    <div style="z-index: 4; position: absolute;" data-list-item-target="modal" data-controller="modal" id="modal-window" tabindex="-1"    role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-					        
-							</div>
+										
+									    <div class"modal fade"  style="z-index: 4; position: absolute;" id="modal-window" data-list-item-target="modal" data-controller="modal" >
+									        
+											</div>
+							
 
 									<div class="d-flex">
 											<%=link_to  edit_list_list_item_path(list, list_item), {:remote => true, 'data-target' => '#modal-window'} do %> 
