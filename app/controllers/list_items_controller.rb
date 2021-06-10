@@ -13,8 +13,7 @@ class ListItemsController < ApplicationController
  	set_list_item
  	
  	 respond_to do |format|
-    format.html {}
-    format.js { render :layout => false}
+    format.js
   end
  end
  
