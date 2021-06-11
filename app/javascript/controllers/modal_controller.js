@@ -11,10 +11,11 @@ export default class extends Controller {
 
  open() {
   document.body.classList.add("modal-open");
-  console.log(this.element)
   this.element.setAttribute("style", "display: block;");
   this.element.classList.add("show");
   document.body.innerHTML += '<div id="modal-backdrop" class="modal-backdrop show"></div>';
+
+
 
  }
 

@@ -1,3 +1,4 @@
+
 /*
 //= require actiontext
 // * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -15,7 +16,24 @@
 // *= require_self
 // */
 
+
 .mr {
   margin-right: 5px;
 
+}
+
+.open-modal{
+  z-index: 4; 
+  position: fixed; 
+  left: 25%; 
+  top: 9%;
+}
+
+.back-modal:after{
+   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
