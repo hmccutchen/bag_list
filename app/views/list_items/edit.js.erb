@@ -1,0 +1,21 @@
+
+$("#myModal").html("<%= j (render 'list_items/form') %>");
+
+
+
+$( document ).ready(function() {
+   var modal = document.getElementById("myModal");
+    
+     modal.style.display = "block";
+  
+    $("#close-button").on("click",function(){
+    	
+      if(modal.style.display == "none"){
+      	modal.style.display = "block";
+      	
+      }else{
+    	modal.style.display = "none";
+          
+    	};
+    })
+});

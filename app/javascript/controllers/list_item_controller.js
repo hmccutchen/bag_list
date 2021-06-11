@@ -11,7 +11,7 @@ export default class extends Controller {
 
         Sortable.create(this.itemTarget, {
             onEnd: (e) => this.reorder(e),
-        })
+        });
 
 
     }
@@ -42,6 +42,17 @@ export default class extends Controller {
         this.formTarget.reset();
     }
 
+    editItem(e) {
+        console.log("w as it")
+        this.stimulate("ListItem#edit", e.currentTarget.dataset.listItemId)
+        e.preventDefault();
 
+        let modalController = this.application.getControllerForElementAndIdentifier(
+            this.modalTarget,
+            "modal"
+        );
+        modalController.open();
+
+    }
 
 }
