@@ -3,7 +3,7 @@ class ListReflex < ApplicationReflex
 	before_reflex :set_list, only: [:destroy, :edit, :update, :reorder]
 
 	def create
-		 List.create(list_params)
+		 List.create(list_params.merge(user: connection.current_user))
 	end
  
  def destroy
