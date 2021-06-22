@@ -7,9 +7,7 @@
    <div class="modal-header">
      <h2 class="d-flex justify-content-center modal-title">Update list item</h2>
     </div>
-			
-  <div class="modal-body">
-				           
+  <div class="modal-body">   
     <%= bootstrap_form_with model: @list_item, url: "", data: { reflex: "submit->ListItem#update", id: @list_item.id, list_item_target: "form" } do |form| %>
     <%= form.rich_text_area :content,  wrapper_class: "flex-fill mr-2", skip_label: true, id: form.object.object_id, class: "mb-3 w-100 form-control" %>
     <%= form.submit "Edit Item", class: "btn btn-success form-control" %>

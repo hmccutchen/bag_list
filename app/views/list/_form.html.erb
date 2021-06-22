@@ -1,8 +1,6 @@
+
 <%= bootstrap_form_with model: @list, url: "", data: { reflex: "submit->List#create"} do |form| %>
 <%=form.text_field :name, skip_label: true, wrapper_class: "flex-fill mr-2", class: "mb-2 w-100", placeholder: "Add list name" %>
 <%= form.date_field :date, :value => Date.today, wrapper_class: "flex-fill mr-2", class: "w-100 mb-4" %>
 <%= form.submit "Submit", class: "btn btn-success form-control" %>
-
-<button  aria-hidden="true" class="btn btn-danger" data-action="click->modal#close">Close</button>
-
 <% end %>
